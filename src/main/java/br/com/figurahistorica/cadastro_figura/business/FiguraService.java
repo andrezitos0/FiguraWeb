@@ -22,5 +22,21 @@ public class FiguraService {
         );
     }
 
+    public void atualizarFiguraPorId(Integer id, Figura figura){
+        Figura figuraEntity = repository.findById(id).orElseThrow(() ->
+                new RuntimeException("Figura nao encontrada"));
+        Figura figuraAtualizado = Figura.builder()
+                .nome(figura.getNome() != null ? figura.getNome() :
+                        figuraEntity.getNome())
+                .profissao(figura.getProfissao() != null ? figura.getProfissao() :
+                        figuraEntity.getProfissao())
+                .nacionalidade(figura.getNacionalidade() != null ? figura.getNacionalidade() :
+                        figuraEntity.getNacionalidade())
+                .ano(figura.getAno() != null ? figura.getAno() :
+                        figuraEntity.getAno())
+                .id(figuraEntity.getId())
+                .build();
 
+        repository.saveAndFlush(figuraAtualizado);
+    }
 }
