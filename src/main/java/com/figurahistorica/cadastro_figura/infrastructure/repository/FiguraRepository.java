@@ -1,6 +1,6 @@
-package br.com.figurahistorica.cadastro_figura.infrastructure.repository;
+package com.figurahistorica.cadastro_figura.infrastructure.repository;
 
-import br.com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
+import com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,7 @@
-package br.com.figurahistorica.cadastro_figura.controller;
+package com.figurahistorica.cadastro_figura.controller;
 
-import br.com.figurahistorica.cadastro_figura.business.FiguraService;
-import br.com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
+import com.figurahistorica.cadastro_figura.business.FiguraService;
+import com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ public class FiguraController {
 
     @PostMapping
     public ResponseEntity<Void> salvarFigura(@RequestBody Figura figura){
-        FiguraService.salvarFigura(figura);
+        figuraService.salvarFigura(figura);
         return ResponseEntity.ok().build();
     }
 
@@ -27,8 +27,14 @@ public class FiguraController {
 
     @DeleteMapping
     public ResponseEntity<Void> deletarFiguraPorNome(@RequestParam String nome){
-        FiguraService.deletarFiguraPorNome(nome);
+        figuraService.deletarFiguraPorNome(nome);
         return ResponseEntity.ok().build();
     }
 
+    @PutMapping
+    public ResponseEntity<Void> atualizarFiguraPorId(@RequestBody Figura figura,
+                                                     @RequestParam Integer id) {
+        figuraService.atualizarFiguraPorId(id, figura);
+        return ResponseEntity.ok().build();
+    }
 }

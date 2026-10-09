@@ -1,4 +1,4 @@
-package br.com.figurahistorica.cadastro_figura.infrastructure.entities;
+package com.figurahistorica.cadastro_figura.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

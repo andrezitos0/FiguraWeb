@@ -1,14 +1,15 @@
-package br.com.figurahistorica.cadastro_figura.business;
+package com.figurahistorica.cadastro_figura.business;
 
-import br.com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
-import br.com.figurahistorica.cadastro_figura.infrastructure.repository.FiguraRepository;
+import com.figurahistorica.cadastro_figura.infrastructure.entities.Figura;
+import com.figurahistorica.cadastro_figura.infrastructure.repository.FiguraRepository;
 import org.springframework.stereotype.Service;
 
+@Service
 public class FiguraService {
 
     private final FiguraRepository repository;
 
-    public FiguraRepository(FiguraRepository repository){
+    public FiguraService(FiguraRepository repository){
         this.repository = repository;
     }
 
@@ -38,5 +39,9 @@ public class FiguraService {
                 .build();
 
         repository.saveAndFlush(figuraAtualizado);
+    }
+
+    public void deletarFiguraPorNome(String nome){
+        repository.deleteByNome(nome);
     }
 }
